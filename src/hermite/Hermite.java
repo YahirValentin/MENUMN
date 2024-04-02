@@ -15,3 +15,20 @@ public Punto(double x, double y, double dy){
     this.dy = dy;
     }
 }
+    public static double interpolacionhermite(List<Punto> puntos, double valor){
+        double resultado = 0;
+        for (int i = 0; i < puntos.size(); i++) {
+            double termino = puntos.get(i).y;
+            double producto = 1;
+            for (int j = 0; j < puntos.size(); j++) {
+                if (i!=j) {
+                    producto *= (valor - puntos.get(j).x);
+                    termino *= (valor - puntos.get(j).x)/ (puntos.get(i).x - puntos.get(j).x);
+                    
+                }
+            }
+            resultado += termino + producto * puntos.get(i).dy;
+        }
+        return resultado;
+    }
+    }

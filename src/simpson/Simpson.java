@@ -10,3 +10,11 @@ public class Simpson {
             double x = a + i * h;
             sum += 4 * func.applyAsDouble(x);
         }
+          for (int i = 2; i < n - 1; i += 2) {
+            double x = a + i * h;
+            sum += 2 * func.applyAsDouble(x); 
+        }
+
+        return (h / 3) * sum;
+    }
+}

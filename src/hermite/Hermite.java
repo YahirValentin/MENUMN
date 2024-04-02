@@ -8,3 +8,10 @@ public class Hermite {
         double x;
         double y;
         double dy;
+        
+public Punto(double x, double y, double dy){
+    this.x = x;
+    this.y = y;
+    this.dy = dy;
+    }
+}

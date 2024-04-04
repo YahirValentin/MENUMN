@@ -4,18 +4,26 @@
  */
 package menumn;
 
+import euler.Euler;
+import hermite.Hermite;
+import jacobi.Jacobi;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.DoubleUnaryOperator;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
+import simpson.Simpson;
 
 /**
  *
@@ -55,6 +63,7 @@ public class MenuMN {
 
         frame.getContentPane().add(mainPanel);
         frame.setVisible(true);
+        }
           
     private static JButton createButton(String text, ActionListener listener) {
         JButton button = new JButton(text);
@@ -71,11 +80,42 @@ public class MenuMN {
         double a = 0.0;
         double b = Math.PI;
         int n = 100;
-        double integral = Uno.simpsonCompuesto(func, a, b, n);
+        double integral = Simpson.simpsonCompuesto(func, a, b, n);
         mostrarResultado("Resultado", "La integral de sin(x) de 0 a PI es aproximadamente: " + integral);
     }
+      public static void ejecutarEuler() {
+        double x0 = 0;
+        double y0 = 1;
+        double h = 0.1;
+        double xf = 1;
+        double[] y = Euler.euler(x0, y0, h, xf);
+        mostrarResultado("Resultado", "Valores aproximados de y utilizando el metodo de Euler:\n" + Arrays.toString(y));
     }
 
+    public static void ejecutarHermite() {
+        List<Hermite.Punto> puntos = new ArrayList<>();
+        puntos.add(new Hermite.Punto(0, 1, 2));
+        puntos.add(new Hermite.Punto(1, 3, 4));
+        puntos.add(new Hermite.Punto(2, 5, 6));
+        double valorInterpolado = Hermite.interpolacionhermite(puntos, 1.5);
+        mostrarResultado("Resultado", "El valor interpolado en x=1.5 es: " + valorInterpolado);
     }
-    
+
+    public static void ejecutarJacobi() {
+        double[][] A = {{4, 1, -1}, {2, 7, 1}, {1, 2, 5}};
+        double[] b = {3, 19, 2};
+        int iteracionesMaximas = 100;
+        double tolerancia = 1e-6;
+        double[] solucion = Jacobi.jacobi(A, b, iteracionesMaximas, tolerancia);
+        mostrarResultado("Resultado", "Solucion:\n" + Arrays.toString(solucion));
+    }
+
+    public static void mostrarResultado(String titulo, String mensaje) {
+        JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+    }
 }
+    
+
+    
+    
+

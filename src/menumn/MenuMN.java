@@ -5,6 +5,9 @@
 package menumn;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -51,6 +54,16 @@ public class MenuMN {
 
         frame.getContentPane().add(mainPanel);
         frame.setVisible(true);
+          
+    private static JButton createButton(String text, ActionListener listener) {
+        JButton button = new JButton(text);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button.setBackground(Color.decode("#f7a8b8"));
+        button.setForeground(Color.WHITE); 
+        button.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); 
+        button.addActionListener(listener);
+        return button;
+    }
     }
 
     }

@@ -39,10 +39,10 @@ public class MenuMN {
         mainPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
         mainPanel.setBackground(Color.decode("#d8bfd8")); 
         
-         JButton botonUno = createButton("SIMPSON COMPUESTA", e -> ejecutarCodigoUno());
-        JButton botonDos = createButton("EULER", e -> ejecutarCodigoDos());
-        JButton botonTres = createButton("HERMMITE", e -> ejecutarCodigoTres());
-        JButton botonCuatro = createButton("JACOBI", e -> ejecutarCodigoCuatro());
+        JButton botonUno = createButton("SIMPSON COMPUESTA", e -> ejecutarSimp());
+        JButton botonDos = createButton("EULER", e -> ejecutarEuler());
+        JButton botonTres = createButton("HERMMITE", e -> ejecutarHermite());
+        JButton botonCuatro = createButton("JACOBI", e -> ejecutarJacobi());
        
         mainPanel.add(botonUno);
         mainPanel.add(Box.createVerticalStrut(10)); 

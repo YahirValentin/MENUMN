@@ -7,6 +7,7 @@ package menumn;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionListener;
+import java.util.function.DoubleUnaryOperator;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -63,6 +64,15 @@ public class MenuMN {
         button.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); 
         button.addActionListener(listener);
         return button;
+    }
+    
+     public static void ejecutarSimp() {
+        DoubleUnaryOperator func = x -> Math.sin(x);
+        double a = 0.0;
+        double b = Math.PI;
+        int n = 100;
+        double integral = Uno.simpsonCompuesto(func, a, b, n);
+        mostrarResultado("Resultado", "La integral de sin(x) de 0 a PI es aproximadamente: " + integral);
     }
     }
 

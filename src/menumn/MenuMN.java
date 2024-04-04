@@ -5,6 +5,7 @@
 package menumn;
 
 import java.awt.Color;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -39,6 +40,18 @@ public class MenuMN {
         JButton botonDos = createButton("EULER", e -> ejecutarCodigoDos());
         JButton botonTres = createButton("HERMMITE", e -> ejecutarCodigoTres());
         JButton botonCuatro = createButton("JACOBI", e -> ejecutarCodigoCuatro());
+       
+        mainPanel.add(botonUno);
+        mainPanel.add(Box.createVerticalStrut(10)); 
+        mainPanel.add(botonDos);
+        mainPanel.add(Box.createVerticalStrut(10));
+        mainPanel.add(botonTres);
+        mainPanel.add(Box.createVerticalStrut(10));
+        mainPanel.add(botonCuatro);
+
+        frame.getContentPane().add(mainPanel);
+        frame.setVisible(true);
+    }
 
     }
     

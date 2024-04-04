@@ -6,6 +6,7 @@ package menumn;
 
 import java.awt.Color;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -33,6 +34,12 @@ public class MenuMN {
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
         mainPanel.setBackground(Color.decode("#d8bfd8")); 
+        
+         JButton botonUno = createButton("SIMPSON COMPUESTA", e -> ejecutarCodigoUno());
+        JButton botonDos = createButton("EULER", e -> ejecutarCodigoDos());
+        JButton botonTres = createButton("HERMMITE", e -> ejecutarCodigoTres());
+        JButton botonCuatro = createButton("JACOBI", e -> ejecutarCodigoCuatro());
+
     }
     
 }
